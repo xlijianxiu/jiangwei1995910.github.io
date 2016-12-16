@@ -42,7 +42,7 @@ tags:
     <br><b>还有一个是学校党委那边推荐了一个阳朔党建的网站项目（PHP CMS管理系统）</b>
 	<br>我和另外一个同学一起开发的，完全自己开发，从零开始，
     前后弄了大半学期，结果一直拖到大三都快下学期了，还没拿到钱，不过项目也没给他们，目测他们是不准备要了，附一张图吧
-<img src="img/articleImg/ysdj.png">	
+<img src="/img/articleImg/ysdj.png">	
 <br>
     <br>
     <br>
