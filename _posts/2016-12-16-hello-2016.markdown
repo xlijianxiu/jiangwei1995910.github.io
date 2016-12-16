@@ -3,7 +3,7 @@ layout:     post
 title:      "Hello 2016"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2016-12-16 17:00:00
-author:     "Hux"
+author:     "蒋为"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 categories: logs
@@ -14,7 +14,7 @@ tags:
 > “Yeah It's on. ”
 
 
-##Hello World
+## Hello World
 
 
 千呼万唤始出来，
