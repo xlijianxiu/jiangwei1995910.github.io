@@ -11,14 +11,14 @@ tags:
 ---
 >转载于网络
 <h2>1.首先保证你的电脑有c++编译环境</h2>
-<p>如果没有，通过以下命令安装</p>
+<p id="one">如果没有，通过以下命令安装
 {% highlight perl %}
 sudo apt-get install build-essential
 sudo apt-get install libgtk2.0-dev
 {% endhighlight %}
-
+</p>
 <h2>2.在～目录新建一个名为sublime-imfix.c的文件</h2>
-<p>
+<p id="two">
 {% highlight c %}
 #include <gtk/gtkimcontext.h>
 
@@ -60,21 +60,21 @@ void gtk_im_context_set_client_window (GtkIMContext *context,
 
 
 <h2>3.将上述文件编译成共享库libsublime-imfix.so</h2>
-<p>
+<p id="three">
 {% highlight perl %}
 gcc -shared -o libsublime-imfix.so sublime-imfix.c `pkg-config --libs --cflags gtk+-2.0` -fPIC
 {% endhighlight %}
-<p>
+</p>
 
 <h2>4.将libsublime-imfix.so拷贝到sublime_text所在文件夹</h2>
-<p>
+<p id='four'>
 {% highlight perl %}
 sudo mv libsublime-imfix.so /opt/sublime_text/
 {% endhighlight %}
-<p>
+</p>
 
 <h2>5.修改文件/usr/bin/subl的内容</h2>
-<p>
+<p id='five'>
 {% highlight perl %}
 sudo vi /usr/bin/subl
 {% endhighlight %}
@@ -88,12 +88,12 @@ exec /opt/sublime_text/sublime_text "$@"
 #!/bin/sh
 LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text "$@"
 {% endhighlight %}
-<p>
+</p>
 
 
 
 <h2>6.修改启动器</h2>
-<p>
+<p id="six">
 为了使用鼠标右键打开文件时能够使用中文输入，还需要修改文件sublime_text.desktop的内容。命令：
 
 {% highlight perl %}
@@ -143,7 +143,6 @@ Exec=bash -c "LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime
 {% endhighlight %}
 
 </p>
-
 
 
 
