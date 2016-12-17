@@ -15,7 +15,7 @@ tags:
 winsock是Windows网络编程接口，winsock工作在应用层，它提供与底层传输协议无关的高层数据传输编程接口 netsh winsock reset 是把它恢复到默认状态
 </p>
 
-## 目录:
+<h2> 目录:</h2>
 <table>
 <tr>
 	<td><a href="#jieshao">介绍</a></td>
@@ -31,11 +31,11 @@ winsock是Windows网络编程接口，winsock工作在应用层，它提供与�
 ---
 
 <p id="jieshao"></p>
-## 介绍
+<h2> 介绍</h2>
 <p>netsh winsock reset命令，作用是重置 Winsock 目录。如果一台机器上的Winsock协议配置有问题的话将会导致网络连接等问题，就需要用netsh winsock reset命令来重置Winsock目录借以恢复网络。这个命令可以重新初始化网络环境，以解决由于软件冲突、病毒原因造成的参数错误问题。 netsh是一个能够通过命令行操作几乎所有网络相关设置的接口，比如设置IP，DNS，网卡，无线网络等，Winsock是系统内部目录，Winsock是Windows网络编程接口，winsock工作在应用层，它提供与底层传输协议无关的高层数据传输编程接口，reset是对Winsock的重置操作。当执行完winsock的命令重启计算机后，需要重新配置IP。</p>
 ---
 <p id="xp"></p>
-## Win XP
+<h2> Win XP</h2>
 
 <p>
 要为 Windows XP 重置 Winsock，请按照下列步骤操作：<br>
@@ -46,7 +46,7 @@ winsock是Windows网络编程接口，winsock工作在应用层，它提供与�
 ---
 
 <p id="vista"></p>
-## Vista
+<h2>  Vista</h2>
 <p>
 要为 Windows Vista 重置 Winsock，请按照下列步骤操作：<br>
 1.单击“开始”，在开始搜索框中键入cmd，右键单击“cmd.exe”，单击“以管理员身份运行”，然后按“继续”。<br>
@@ -57,7 +57,7 @@ winsock是Windows网络编程接口，winsock工作在应用层，它提供与�
 
 ---
 <p id="win7"></p>
-## Win7
+<h2>  Win7</h2>
 <p>要为 Windows 7 重置 Winsock，请按照下列步骤操作：<br>
 1.单击“开始”，在开始搜索框中键入cmd，右键单击“cmd.exe”，单击“以管理员身份运行”，然后按“继续”。<br>
 2.在命令提示符处键入 netsh winsock reset，然后按 Enter(回车键)。<br>
@@ -66,7 +66,7 @@ winsock是Windows网络编程接口，winsock工作在应用层，它提供与�
 </p>
 ---
 <p id="win10"></p>
-## Win10
+<h2>  Win10</h2>
 <p>
 部分用户在升级至Windows 10 系统后，会遇到除了自带的Microsoft Edge 浏览器外，其他应用都不能联网的情况，也可以通过该命令解决，具体操作如下：<br>
 1、按Win+X，选择“命令提示符（管理员）”，注意这个不要选择到上面的那个“命令提示符”，不然你在输入命令后，可能会收到“请求的操作需要提升”的提示。<br>
