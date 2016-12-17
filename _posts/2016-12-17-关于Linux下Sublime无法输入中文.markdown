@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "解决Linux下Sublime无法输入中文"
+title:      "关于Linux下Sublime无法输入中文"
 subtitle:   ""
 date:       2016-12-17 16:00:00
 author:     "蒋为"
