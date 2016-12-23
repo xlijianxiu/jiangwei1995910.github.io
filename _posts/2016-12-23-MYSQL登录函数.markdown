@@ -14,6 +14,7 @@ tags:
 
 ## MYSQL一个简单的登录函数
 密码使用md5加密：<br>
+{% highlight mysql %}
 create function login (username char(10),pw char(10)) <br>
     	returns int <br>
     	BEGIN <br>
@@ -27,3 +28,4 @@ create function login (username char(10),pw char(10)) <br>
 	RETURN 0; <br>
 END IF; <br>
 END
+{% endhighlight %}
