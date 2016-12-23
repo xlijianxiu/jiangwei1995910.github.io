@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "excel筛选再辅助"
+title:      "excel筛选再复制"
 subtitle:   "excel小技巧"
 date:       2016-12-23 11:00:00
 author:     "蒋为"
-header-img: "img/15.jpg"
+header-img: "img/17.jpg"
 catalog: true
 tags:
     - Excel
