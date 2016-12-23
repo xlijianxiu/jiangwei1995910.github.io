@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Ubuntu设置远程连接"
-subtitle:   "Ubuntu设置远程连接"
+subtitle:   "VNC连接"
 date:       2016-12-23 11:00:00
 author:     "蒋为"
 header-img: "img/8.jpg"
