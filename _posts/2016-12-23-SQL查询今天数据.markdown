@@ -1,0 +1,17 @@
+---
+layout:     post
+title:      "Hello 2016"
+subtitle:   "SQL查询今天数据"
+date:       2016-12-16 17:00:00
+author:     "蒋为"
+header-img: "img/11.jpg"
+catalog: true
+tags:
+    - 生活
+---
+>记录
+## 数据库查询今天记录
+mysql：
+{% highlight sql %}
+select * from 表名 where to_days(时间字段名)=to_days(now());
+{% endhighlight %}
