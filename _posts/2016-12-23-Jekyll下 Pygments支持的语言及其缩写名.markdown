@@ -21,6 +21,13 @@ Jekyll下可以使用如下格式使代码高亮(去掉\使用)  <br>
 
 \{\% endhighlight \%\}
 
+
+<br>
+
+
+下面是各种语言对应于Jekyll中的写法
+
+
 <table>
     
 
