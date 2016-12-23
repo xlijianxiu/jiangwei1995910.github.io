@@ -1,43 +1,71 @@
 ---
 layout:     post
-title:      "Ubuntu设置远程连接"
-subtitle:   "VNC连接"
-date:       2016-12-23 11:00:00
+title:      "JavaScript操作cookie"
+subtitle:   "Javascript"
+date:       2016-12-23 13:00:00
 author:     "蒋为"
-header-img: "img/8.jpg"
+header-img: "img/23.jpg"
 catalog: true
 tags:
-    - Linux
+    - JavaScript
 ---
 >记录
 
 
 
+## 设置cookie函数
 
-## 1、设置Ubuntu 16.04系统允许远程控制
-
-在 Dash 中打开 桌面共享
-设置相关选项
-
-## 2.运行dconf-editor，把加密选项去掉。
-
-$ sudo apt-getinstall dconf-editor  //安装dconf-editor，一个类似windows下注册表管理的工具
+c_name:cookie名 <br>
+value:cookie值 <br>
+expiredays:cookie过期时间 <br>
 
 
-$dconf-editor  //运行dconf-editor
+{% highlight javascript %}
 
 
-或者在 Dash 中打开 桌面共享
 
-依次展开org->gnome->desktop->remote-access
+function setCookie(c_name, value, expiredays)
+{
+ 　　var exdate=new Date();
+ 　　exdate.setDate(exdate.getMinutes() + expiredays);
+ 　　document.cookie=c_name+ "=" + escape(value) + ((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+}
+ 
+ 
+ 
 
-这里也可以直接设置远程控制选项，但重要的是将“requre-encryption”去掉。
+
+{% endhighlight %}
 
 
-## 3.回到Windows，运行vnc viewer，输入ubuntu的IP地址，一切OK
 
 
-输入在桌面共享中设置的密码。
+## 读取cookie函数
+
+c_name:cookie名 <br>
+返回值：所取cookie的值 <br>
 
 
-成功！
+{% highlight javascript %}
+
+
+ 
+ function getCookie(c_name){
+　　　　if (document.cookie.length>0)
+		{　　
+　　　　　　c_start=document.cookie.indexOf(c_name + "=")　　
+　　　　　　if (c_start!=-1)
+			{ 
+　　　　　　　　c_start=c_start + c_name.length+1　　
+　　　　　　　　c_end=document.cookie.indexOf(";",c_start)　
+　　　　　　　　if (c_end==-1) c_end=document.cookie.length　　
+　　　　　　　　return unescape(document.cookie.substring(c_start,c_end))　　
+			} 
+　　　　}
+　　　　return 0
+　　}
+  
+  
+  
+  
+{% endhighlight %}  
