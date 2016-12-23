@@ -12,6 +12,6 @@ tags:
 >记录
 ## 数据库查询今天记录
 mysql：
-{% highlight mysql %}
+{% highlight %}
 select * from 表名 where to_days(时间字段名)=to_days(now());
 {% endhighlight %}
