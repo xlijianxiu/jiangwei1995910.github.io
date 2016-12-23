@@ -13,13 +13,13 @@ tags:
 
 
 
-Jekyll下可以使用如下格式使代码高亮  <br>
+Jekyll下可以使用如下格式使代码高亮(去掉\使用)  <br>
 
-\{% highlight  语言名  %\}
+\{\% highlight  语言名  \%\}
   
   代码
 
-\{% endhighlight %\}
+\{\% endhighlight \%\}
 
 <table>
     
