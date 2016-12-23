@@ -12,6 +12,15 @@ tags:
 >记录
 
 
+
+Jekyll下可以使用如下格式使代码高亮  <br>
+
+\{\% highlight  语言名  \%\}
+  
+  代码
+
+\{\% endhighlight \%\}
+
 <table>
     
 
