@@ -1,9 +1,11 @@
 ---
 layout:     post
 title:      "mechanize的简单使用"
+subtitle:	“mechanize”
 date:       2016-12-25 12:00:00
 author:     "蒋为"
 header-img: "img/6.jpg"
+catalog: true
 tags:
     - Python
 ---
