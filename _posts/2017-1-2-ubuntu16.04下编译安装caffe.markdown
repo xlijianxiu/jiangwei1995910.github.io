@@ -148,6 +148,66 @@ j8是编译器选项，代表计算机cpu有8个核，因此可以多线程一�
 
 
 
+
+## 运行caffe自带的简单例子
+
+为了程序的简洁，在caffe中是不带练习数据的，因此需要自己去下载。但在caffe根目录下的data文件夹里，作者已经为我们编写好了下载数据的脚本文件，我们只需要联网，运行这些脚本文件就行了。
+
+注意：在caffe中运行所有程序，都必须在根目录下进行，否则会出错
+
+### mnist实例
+
+mnist是一个手写数字库，由DL大牛Yan LeCun进行维护。mnist最初用于支票上的手写数字识别, 现在成了DL的入门练习库。征对mnist识别的专门模型是Lenet，算是最早的cnn模型了。
+
+mnist数据训练样本为60000张，测试样本为10000张，每个样本为28*28大小的黑白图片，手写数字为0-9，因此分为10类。
+
+首先下载mnist数据，假设当前路径为caffe根目录
+{% highlight pl %}
+
+sudo sh data/mnist/get_mnist.sh
+
+{% endhighlight %}
+
+运行成功后，在 data/mnist/目录下有四个文件：
+
+train-images-idx3-ubyte:  训练集样本 (9912422 bytes) 
+train-labels-idx1-ubyte:  训练集对应标注 (28881 bytes) 
+t10k-images-idx3-ubyte:   测试集图片 (1648877 bytes) 
+t10k-labels-idx1-ubyte:   测试集对应标注 (4542 bytes)
+
+这些数据不能在caffe中直接使用，需要转换成LMDB数据
+{% highlight pl %}
+sudo sh examples/mnist/create_mnist.sh
+{% endhighlight %}
+
+如果想运行leveldb数据，请运行 examples/siamese/ 文件夹下面的程序。 examples/mnist/ 文件夹是运行lmdb数据
+
+转换成功后，会在 examples/mnist/目录下，生成两个文件夹，分别是mnist_train_lmdb和mnist_test_lmdb，里面存放的data.mdb和lock.mdb，就是我们需要的运行数据。
+
+接下来是修改配置文件，如果你有GPU且已经完全安装好，这一步可以省略，如果没有，则需要修改solver配置文件。
+
+需要的配置文件有两个，一个是lenet_solver.prototxt，另一个是train_lenet.prototxt.
+
+首先打开lenet_solver_prototxt
+{% highlight pl %}
+sudo vi examples/mnist/lenet_solver.prototxt
+{% endhighlight %}
+
+根据需要，在max_iter处设置最大迭代次数，
+
+将最后一行solver_mode,改成CPU
+
+保存退出后，就可以运行这个例子了
+{% highlight pl %}
+sudo time sh examples/mnist/train_lenet.sh
+{% endhighlight %}
+
+
+CPU运行时候大约13分钟，GPU运行时间大约4分钟，GPU+cudnn运行时候大约40秒，精度都为99%左右
+
+
+
+
 ## 主要参考文章
 
 http://www.cnblogs.com/------------/p/6070324.html
