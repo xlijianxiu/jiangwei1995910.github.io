@@ -14,7 +14,7 @@ tags:
 
 ## caffe简介
 
-Caffe是一个清晰而高效的深度学习框架，其作者是博士毕业于UC Berkeley的贾扬清，目前在Google工作。
+Caffe是一个清晰而高效的深度学习框架，其作者是毕业于UC Berkeley的贾扬清博士，目前在Google工作。
 
 Caffe是纯粹的C++/CUDA架构，支持命令行、Python和MATLAB接口；可以在CPU和GPU直接无缝切换：
 
