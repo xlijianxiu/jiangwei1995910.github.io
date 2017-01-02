@@ -1,0 +1,62 @@
+---
+layout:     post
+title:      "ubuntu16.04下编译安装caffe"
+subtitle:   "caffe"
+date:       2017-1-2 11:00:00
+author:     "蒋为"
+header-img: "img/10.jpg"
+catalog: true
+tags:
+    - Caffe
+	- Linux
+---
+>记录
+
+
+## 安装显卡驱动
+
+这个比较简单，直接系统设置->软件和更新->附加驱动->选择对应的驱动（专有驱动）
+
+然后在命令行输入：
+{% highlight pl %}
+nvidia-smi
+{% endhighlight %}
+如果出现了你的显卡信息即安装成功了
+
+## 安装CUDA
+
+cuda是nvidia的编程语言平台，想使用GPU就必须要使用cuda。 
+
+从这里下载cuda的安装文件 
+
+https://developer.nvidia.com/cuda-downloads
+
+提示：可使用
+
+
+{% highlight pl %}
+uname -m && cat /etc/*release  
+{% endhighlight %}
+查看你的系统版本信息
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参考文章
+
+http://blog.csdn.net/xizero00/article/details/43227019
+
+http://blog.csdn.net/autocyz/article/details/51783857
+
+http://www.2cto.com/os/201608/535727.html
+
+http://www.th7.cn/system/lin/201608/176823.shtml
