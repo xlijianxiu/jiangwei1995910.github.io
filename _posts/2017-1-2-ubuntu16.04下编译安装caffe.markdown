@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "ubuntu16.04下编译安装caffe"
-subtitle:   "caffe"
+subtitle:   "caffe最简单的安装方式"
 date:       2017-1-2 11:00:00
 author:     "蒋为"
 header-img: "img/18.jpg"
@@ -18,65 +18,9 @@ Caffe是一个清晰而高效的深度学习框架，其作者是毕业于UC Ber
 
 Caffe是纯粹的C++/CUDA架构，支持命令行、Python和MATLAB接口；可以在CPU和GPU直接无缝切换：
 
+本文介绍的是仅cpu模式编译安装caffe，是我看过几十篇文章后总结的最简单的安装方式，但是运行效率不怎么样，不过对于刚入门的初学者学习caffe差不多够了，
 
-## 安装显卡驱动
-
-这个比较简单，直接系统设置->软件和更新->附加驱动->选择对应的驱动（专有驱动）
-
-然后在命令行输入：
-{% highlight pl %}
-nvidia-smi
-{% endhighlight %}
-如果出现了你的显卡信息即安装成功了
-
-## 安装CUDA
-
-cuda是nvidia的编程语言平台，想使用GPU就必须要使用cuda。 
-
-从这里下载cuda的安装文件 
-
-https://developer.nvidia.com/cuda-downloads
-
-提示：可使用
-
-
-{% highlight pl %}
-uname -m && cat /etc/*release  
-{% endhighlight %}
-查看你的系统版本信息
-
-下载完成后将下载的文件改为.deb后缀
-然后
-{% highlight pl %}
-sudo dpkg -i cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb.deb
-sudo apt-get update  
-sudo apt-get install cuda  
-sudo apt-get install nvidia-cudia-cuda-toolkit
-{% endhighlight %}
-安装
-
-
-
-
-
-设置环境变量：
-{% highlight pl %}
-
-sudo gedit /etc/profile
-
-{% endhighlight %}
-
-把下面两句添加到文件末尾
-
-{% highlight pl %}
-export PATH=/usr/local/cuda-8.0/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
-{% endhighlight %}
-
-
-
-
-然后重启计算机，使驱动，环境变量等设置生效
+可以少花一点时间在配置上面。
 
 
 
@@ -86,46 +30,34 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
 
 {% highlight pl %}
 
-sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+sudo apt-get install git libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
 
-sudo apt-get install --no-install-recommends libboost-all-dev
-
-{% endhighlight %}
-
-blas安装
-
-{% highlight pl %}
-
-sudo apt-get install libatlas-base-dev
+sudo apt-get install --no-install-recommends libboost-all-dev libatlas-base-dev python-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 {% endhighlight %}
 
 
 
 
-安装pycaffe接口所需依赖项
+
+
+### 下载与配置文件
 
 {% highlight pl %}
 
-sudo apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn python-skimage python-h5py python-protobuf python-leveldb python-networkx python-nose python-pandas python-gflags cython ipython
-
-sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
-
-{% endhighlight %}
+git clone https://github.com/BVLC/caffe
 
 
-
-{% highlight pl %}
-
-sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 cp Makefile.config.example Makefile.config  //生成配置文件
 
-gedit Makefile.config   //修改配置文件，前面的一些选项根据自己情况开启
+gedit Makefile.config   //修改配置文件
 
 {% endhighlight %}
 
-注意：
+
+修改CPU_ONLY=1，将前面的#号删除即可。
+
 将# Whatever else you find you need goes here.下面两项修改为：
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial 
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial
@@ -152,14 +84,67 @@ make pycaffe
 j8是编译器选项，代表计算机cpu有8个核，因此可以多线程一起make，这样make的速度会快很多。一般常用的还有j4
 
 
+
+
+## 安装anaconda并配置python接口
+
+　　anaconda官网上有免费下载地址和安装指令，灰常滴简单。https://www.continuum.io/downloads
+
+　　更改环境变量。
+
+　　sudo gedit /etc/profile
+  
+   添加如下3行：
+  
+
+　　export PATH=/home/irondroid/anaconda2/bin:$PATH
+
+　　export PYTHONPATH=/home/irondroid/caffe/python:$PYTHONPATH
+
+　　export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+  
+  
+   然后：
+	
+　　source /etc/profile
+
+　　cd caffe
+
+　　make pycaffe
+
+
+
+## 完成caffe安装
+
+　　重启电脑后输入python，如果出现anaconda路径那就说明anaconda安装成功啦。然后
+
+　　>>>import caffe
+
+　　如果出现protobuf之类的什么错误
+
+　　sudo chmod 777 -R anaconda2
+
+　　conda install protobuf
+
+　　这样既可
+
+　　然后再
+
+　　>>>import caffe
+
+　　>>>
+
+　　证明安装成功。
+
+
+
+## 最后，关于配置cuda和cudd提高caffe速度
+
+   有兴趣可以去折腾下，反正我折腾了几天都没成功  T——T
+
+
+
+
 ## 主要参考文章
 
-http://blog.csdn.net/xizero00/article/details/43227019
-
-http://blog.csdn.net/autocyz/article/details/51783857
-
-http://www.2cto.com/os/201608/535727.html
-
-http://www.th7.cn/system/lin/201608/176823.shtml
-
-http://blog.csdn.net/xizero00/article/details/43227019
+http://www.cnblogs.com/------------/p/6070324.html
