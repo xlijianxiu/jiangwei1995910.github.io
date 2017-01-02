@@ -75,8 +75,11 @@ NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
 
 {% highlight pl %}
 make all -j8
+
+make test
+
 make runtest
-make pycaffe
+
 
 {% endhighlight %}
 
