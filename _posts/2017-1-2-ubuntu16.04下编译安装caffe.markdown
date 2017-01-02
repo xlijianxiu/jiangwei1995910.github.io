@@ -45,19 +45,114 @@ uname -m && cat /etc/*release
 {% endhighlight %}
 查看你的系统版本信息
 
+下载完成后将下载的文件改为.deb后缀
+然后
+{% highlight pl %}
+sudo dpkg -i cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb.deb
+sudo apt-get update  
+sudo apt-get install cuda  
+sudo apt-get install nvidia-cudia-cuda-toolkit
+{% endhighlight %}
+安装
 
 
 
 
 
+设置环境变量：
+{% highlight pl %}
+
+sudo gedit /etc/profile
+
+{% endhighlight %}
+
+把下面两句添加到文件末尾
+
+{% highlight pl %}
+export PATH=/usr/local/cuda-8.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+{% endhighlight %}
 
 
 
 
+然后重启计算机，使驱动，环境变量等设置生效
 
 
 
-## 参考文章
+## caffe安装
+
+### 安装依赖项
+
+{% highlight pl %}
+
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+
+sudo apt-get install --no-install-recommends libboost-all-dev
+
+{% endhighlight %}
+
+blas安装
+
+{% highlight pl %}
+
+sudo apt-get install libatlas-base-dev
+
+{% endhighlight %}
+
+
+
+
+安装pycaffe接口所需依赖项
+
+{% highlight pl %}
+
+sudo apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn python-skimage python-h5py python-protobuf python-leveldb python-networkx python-nose python-pandas python-gflags cython ipython
+
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+
+{% endhighlight %}
+
+
+
+{% highlight pl %}
+
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+
+cp Makefile.config.example Makefile.config  //生成配置文件
+
+gedit Makefile.config   //修改配置文件，前面的一些选项根据自己情况开启
+
+{% endhighlight %}
+
+注意：
+将# Whatever else you find you need goes here.下面两项修改为：
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial 
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial
+这是因为Ubuntu16.04的路径发生了一些变化
+
+打开makefile文件搜索并替换
+NVCCFLAGS += -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
+为
+NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
+
+
+
+
+### 编译
+
+{% highlight pl %}
+make all -j8
+make runtest
+make pycaffe
+
+{% endhighlight %}
+
+关于j8：
+j8是编译器选项，代表计算机cpu有8个核，因此可以多线程一起make，这样make的速度会快很多。一般常用的还有j4
+
+
+## 主要参考文章
 
 http://blog.csdn.net/xizero00/article/details/43227019
 
@@ -66,3 +161,5 @@ http://blog.csdn.net/autocyz/article/details/51783857
 http://www.2cto.com/os/201608/535727.html
 
 http://www.th7.cn/system/lin/201608/176823.shtml
+
+http://blog.csdn.net/xizero00/article/details/43227019
