@@ -4,7 +4,7 @@ title:      "ubuntu16.04下编译安装caffe"
 subtitle:   "caffe"
 date:       2017-1-2 11:00:00
 author:     "蒋为"
-header-img: "img/10.jpg"
+header-img: "img/18.jpg"
 catalog: true
 tags:
     - Caffe
