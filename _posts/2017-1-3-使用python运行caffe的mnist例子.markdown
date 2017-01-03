@@ -338,5 +338,7 @@ print 'the class is:',labels[order]   #将该序号转换成对应的类别名�
 
 
 
+## 参考博文
 
+http://www.cnblogs.com/denny402/p/5685909.html
 
