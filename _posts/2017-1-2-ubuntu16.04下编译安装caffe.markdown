@@ -89,55 +89,46 @@ j8是编译器选项，代表计算机cpu有8个核，因此可以多线程一�
 
 
 
-## 安装anaconda并配置python接口
+## 配置python接口
 
-　　anaconda官网上有免费下载地址和安装指令，灰常滴简单。https://www.continuum.io/downloads
+安装依赖：
+{% highlight pl %}
+$ sudo apt-get install python-numpy python-scipy python-matplotlib python-sklearn python-skimage python-h5py python-protobuf python-leveldb python-networkx python-nose python-pandas python-gflags Cython ipython
+$ sudo apt-get install protobuf-c-compiler protobuf-compiler
 
-　　更改环境变量。
 
-　　sudo gedit /etc/profile
+
+配置环境变量：
+{% highlight pl %}
+sudo gedit /etc/profile
+ {% endhighlight %} 
+添加如下行：
+{% highlight pl %}
+export PYTHONPATH=/home/caffe/python:$PYTHONPATH
+{% endhighlight %}
+使用绝对路径
   
-   添加如下3行：
-  
-
-　　export PATH=/home/irondroid/anaconda2/bin:$PATH
-
-　　export PYTHONPATH=/home/irondroid/caffe/python:$PYTHONPATH
-
-　　export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
-  
-  
-   然后：
-	
+然后：
+{% highlight pl %}
 　　source /etc/profile
 
 　　cd caffe
 
 　　make pycaffe
+{% endhighlight %}
+测试是否可以引用
+
+{% highlight python %}
+$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import caffe
+>>> 
+
+{% endhighlight %}
 
 
-
-## 完成caffe安装
-
-　　重启电脑后输入python，如果出现anaconda路径那就说明anaconda安装成功啦。然后
-
-　　>>>import caffe
-
-　　如果出现protobuf之类的什么错误
-
-　　sudo chmod 777 -R anaconda2
-
-　　conda install protobuf
-
-　　这样既可
-
-　　然后再
-
-　　>>>import caffe
-
-　　>>>
-
-　　证明安装成功。
 
 
 
