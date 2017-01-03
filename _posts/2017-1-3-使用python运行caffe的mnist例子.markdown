@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "ubuntu16.04下编译安装caffe"
-subtitle:   "caffe最简单的安装方式"
-date:       2017-1-2 11:00:00
+title:      "使用python运行caffe的mnist例子"
+subtitle:   "caffe从入门到放弃"
+date:       2017-1-3 22:00:00
 author:     "蒋为"
-header-img: "img/18.jpg"
+header-img: "img/19.jpg"
 catalog: true
 tags:
     - Caffe
