@@ -205,3 +205,5 @@ CPU运行时候大约13分钟，GPU运行时间大约4分钟，GPU+cudnn运行�
 ## 主要参考文章
 
 http://www.cnblogs.com/------------/p/6070324.html
+
+http://blog.csdn.net/u011762313/article/details/47262549
