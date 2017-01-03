@@ -15,7 +15,7 @@ tags:
 
 数据分成了训练集（60000张共10类）和测试集（共10000张10类），每个类别放在一个单独的文件夹里。并且将所有的图片，都生成了txt列表清单（train.txt和test.txt)
 
-[下载数据](https://github.com/jiangwei1995910/jiangwei1995910.github.io/blob/master/files/mnist.rar)
+[下载数据](https://github.com/jiangwei1995910/jiangwei1995910.github.io/raw/master/files/mnist.rar)
 
 ## 二、导入caffe库，并设定文件路径
 
