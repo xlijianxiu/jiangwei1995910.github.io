@@ -126,8 +126,8 @@ sudo make -j8
 遇到的问题：
 cudalegacy/src/graphcuts.cpp这个文件报错
 解决方法：
-将 #if !defined (HAVE_CUDA) || defined (CUDA_DISABLER) 这一行修改为
-#if !defined (HAVE_CUDA) || defined (CUDA_DISABLER)||(CUDART_VERSION>=8000)
+将 if !defined (HAVE_CUDA) || defined (CUDA_DISABLER) 这一行修改为
+if !defined (HAVE_CUDA) || defined (CUDA_DISABLER)||(CUDART_VERSION>=8000)
 然后再
 sudo make -j8
 
