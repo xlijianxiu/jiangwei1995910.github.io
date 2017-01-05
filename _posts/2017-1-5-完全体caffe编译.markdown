@@ -8,7 +8,6 @@ header-img: "img/4.jpg"
 catalog: true
 tags:
     - Caffe
-    - Linux
 ---
 >记录
 
