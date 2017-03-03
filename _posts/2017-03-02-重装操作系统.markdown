@@ -48,9 +48,9 @@ tags:
 
 完成后重新格式化U盘，文件系统选择exTAT
 
-<img src="/img/articleImg/04.png">
+<img src="/img/articleImg/czxt04.png">
 
-<img src="/img/articleImg/05.png">
+<img src="/img/articleImg/czxt05.png">
 
 
 然后将你下载的Windows镜像拷贝到U盘中
