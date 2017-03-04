@@ -92,7 +92,7 @@ public class FirstJavaScript
     }
 }
 
-{% endhiglight %}
+{% endhighlight %}
 
 
 ## 直接运行python文件
@@ -104,7 +104,7 @@ public class FirstJavaScript
 
 print 'hello world!'
 
-{% endhiglight %}
+{% endhighlight %}
 
 
 
@@ -129,7 +129,7 @@ public class FirstJavaScript
  }
 }
 
-{% endhiglight %}
+{% endhighlight %}
 
 
 
