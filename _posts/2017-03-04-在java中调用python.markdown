@@ -22,6 +22,7 @@ Jython是一种完整的语言，而不是一个Java翻译器或仅仅是一个P
 
 ## 直接执行python代码
 
+
 {% highlight java %}
 
 import org.python.util.PythonInterpreter;
@@ -41,9 +42,9 @@ public class FirstJavaScript
  }
 }
 
-{% endhighlight %}
-   
 
+   
+{% endhighlight %}
 
 ## 调用python函数
 
