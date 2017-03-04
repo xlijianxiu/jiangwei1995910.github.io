@@ -52,7 +52,7 @@ public class FirstJavaScript
 {% highlight py %}
 def add(a, b):
     return a + b
-{% endhiglight %}
+{% endhighlight %}
 
 
 
