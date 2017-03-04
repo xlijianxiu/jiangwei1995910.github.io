@@ -23,25 +23,26 @@ Jython是一种完整的语言，而不是一个Java翻译器或仅仅是一个P
 ## 直接执行python代码
 
 {% highlight java %}
-import org.python.util.PythonInterpreter;  
+
+import org.python.util.PythonInterpreter;
   
-import java.io.*;  
-import static java.lang.System.*;  
-public class FirstJavaScript  
-{  
- public static void main(String args[])  
- {  
+import java.io.*;
+import static java.lang.System.*;
+public class FirstJavaScript
+{
+ public static void main(String args[])
+ {
     
-  PythonInterpreter interpreter = new PythonInterpreter();  
-  interpreter.exec("days=('mod','Tue','Wed','Thu','Fri','Sat','Sun'); ");  
-  interpreter.exec("print days[1];");  
+  PythonInterpreter interpreter = new PythonInterpreter();
+  interpreter.exec("days=('mod','Tue','Wed','Thu','Fri','Sat','Sun'); ");
+  interpreter.exec("print days[1];");
     
     
  }
-}  
+}
 
 {% endhighlight %}
-
+   
 
 
 ## 调用python函数
@@ -59,12 +60,12 @@ java调用部分：
 
 
 {% highlight java %}
-import org.python.core.PyFunction;  
-import org.python.core.PyInteger;  
-import org.python.core.PyObject;  
-import org.python.util.PythonInterpreter;  
-public class FirstJavaScript  
-{  
+import org.python.core.PyFunction;
+import org.python.core.PyInteger;
+import org.python.core.PyObject;
+import org.python.util.PythonInterpreter;
+public class FirstJavaScript
+{
 	/*
 	 * 将python方法封装成java方法
 	 * */
@@ -72,23 +73,23 @@ public class FirstJavaScript
 	{
 		
 
-		 PythonInterpreter interpreter = new PythonInterpreter();  
+		 PythonInterpreter interpreter = new PythonInterpreter();
 	     interpreter.execfile("/home/jiangwei/桌面/function.py");  //这里是你python文件位置
-	     PyFunction func = (PyFunction)interpreter.get("add",PyFunction.class);  
-	     PyObject pyobj = func.__call__(new PyInteger(x), new PyInteger(y));  
+	     PyFunction func = (PyFunction)interpreter.get("add",PyFunction.class);
+	     PyObject pyobj = func.__call__(new PyInteger(x), new PyInteger(y));
 	     return Integer.valueOf(pyobj.toString());
 
 	}
 	
 	
-    public static void main(String args[])  
-    {  
+    public static void main(String args[])
+    {
           
        System.out.println(add(11,12));
   
   
     }
-}  
+}
 
 {% endhiglight %}
 
