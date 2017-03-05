@@ -1,13 +1,13 @@
 ---
 layout:     post
 title:      "python实现图像相识度比较"
-subtitle:   "命令行脚本"
-date:       2017-1-9 22:00:00
+subtitle:   "python"
+date:       2017-3-5 15:00:00
 author:     "蒋为"
-header-img: "img/11.jpg"
+header-img: "img/2.jpg"
 catalog: true
 tags:
-    - Windows
+    - Python
 ---
 >记录
 
