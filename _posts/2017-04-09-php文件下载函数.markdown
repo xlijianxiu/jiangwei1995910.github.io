@@ -1,22 +1,22 @@
 ---
 layout:     post
-title:      "phpÎÄ¼þÏÂÔØº¯Êý"
+title:      "phpæ–‡ä»¶ä¸‹è½½å‡½æ•°"
 subtitle:   "php"
 date:       2017-04-09 04:15:33
-author:     "½¯Îª"
+author:     "è’‹ä¸º"
 header-img: "img/5.jpg"
 catalog: true
 tags:
     - php
 ---
->¼ÇÂ¼
+>è®°å½•
 
 {% highlight php %}
 
 <?php 
 function downfile()
 {
- $filename=realpath("resume.html"); //ÎÄ¼þÃû
+ $filename=realpath("resume.html"); //æ–‡ä»¶å
  $date=date("Ymd-H:i:m");
  Header( "Content-type:  application/octet-stream "); 
  Header( "Accept-Ranges:  bytes "); 
@@ -32,4 +32,5 @@ downfile();
 {% endhighlight %}
 
 
-ÕâÑùÔÚphp´úÂëÖÐÄÜ¹»ÊµÏÖÍÆËÍÎÄ¼þ¸ø¿Í»§¶Ë
+
+è¿™æ ·åœ¨phpä»£ç ä¸­èƒ½å¤Ÿå®žçŽ°æŽ¨é€æ–‡ä»¶ç»™å®¢æˆ·ç«¯
