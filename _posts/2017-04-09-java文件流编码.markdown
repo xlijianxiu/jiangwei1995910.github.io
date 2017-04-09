@@ -1,4 +1,4 @@
-﻿---
+---
 layout:     post
 title:      "java文件流编码"
 subtitle:   "JAVA"
