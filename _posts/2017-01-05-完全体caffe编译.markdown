@@ -99,22 +99,23 @@ sudo ln -s libcudnn.so.5 libcudnn.so      #生成软链接
 
 
 ## 安装opencv
-从官网(http://opencv.org/downloads.html)下载Opencv,我选择的是3.1版本。将其解压到你要安装的位置，假设解压到了/home/opencv。
+从官网(http://opencv.org/downloads.html)下载Opencv,我选择的是3.1版本。将其解压，假设解压到了/home/opencv。
 
-1 unzip opencv-3.1.0.zip
-2 sudo cp ./opencv-3.1.0 /home
-3 sudo mv opencv-3.1.0 opencv
+1 unzip opencv-3.1.0.zip  <br>
+2 sudo cp ./opencv-3.1.0 /home <br>
+3 sudo mv opencv-3.1.0 opencv <br>
 
-安装前准备，创建编译文件夹：
+进入解压目录
+cd opencv
 
-cd ~/opencv
-mkdir build
-cd build
+安装依赖：
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev  <br>
+    
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev  
+<br>
 
 配置：
-
-1 sudo apt install cmake
-2 sudo cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..
+cmake .  
 
 编译：
 
