@@ -24,9 +24,9 @@ tags:
 识别：使用opencv自带模型获得人脸坐标，根据坐标截取出人脸的图片，然后使用vgg模型得出图片的特征数组，然后遍历数据库数据与待识别图片的特征数组求余弦相似值，根据阈值判定该人脸是谁，然后显示在原图像中。
 
 识别结果：
-<img src="img/r1.png"> <br>
-<img src="img/r2.png"> <br>
-<img src="img/r3.png"> <br>
+<img src="img/articleImg/r1.png"> <br>
+<img src="img/articleImg/r2.png"> <br>
+<img src="img/articleImg/r3.png"> <br>
 
 [项目github地址](https://github.com/jiangwei1995910/Face-recognition-test)
 
