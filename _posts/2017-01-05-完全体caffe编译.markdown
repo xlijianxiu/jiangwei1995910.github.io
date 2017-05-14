@@ -22,6 +22,7 @@ caffe编译之路一波三折，这已经是第三次重新编译，第二次重
 第一个坑！我第一次安装是直接打开ubuntu系统设置，软件更新，选择驱动为340，我的天！安装完cuda后发现，我去！驱动版本太旧，不能使用。阿西吧，重装系统再来吧，这里提醒大家一定要安装最新驱动，然后在安装后面的，使用命令为
 
 sudo  add-apt-repository ppa:graphics-drivers/ppa
+
 sudo apt-get update
 更新源后打开ubuntu系统设置，软件更新，选择驱动最新驱动，我选择的是为375
 
@@ -44,7 +45,9 @@ https://developer.nvidia.com/cuda-downloads
 
 下载完成后使用下面命令安装
 
-sudo chmod 777 cuda_8.0.44_linux.run
+sudo chmod 777 cuda_8.0.44_linux.run 
+
+
 sudo  ./cuda_8.0.44_linux.run
 
 注意：执行后会有一系列提示让你确认，但是注意，有个让你选择是否安装nvidia367驱动时，一定要选择否：
@@ -57,8 +60,8 @@ Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 367.48?
 打开~/.bashrc文件： sudo gedit ~/.bashrc 
 将以下内容写入到~/.bashrc尾部：
 
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}} <br>
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 如果是默认安装路径直接复制就好，如果不是默认路径安装需要修改为对应路径
 
@@ -66,7 +69,9 @@ export LD_LIBRARY_PATH=/usr/local/cuda8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_
 测试CUDA的samples
 
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
+
 make
+
 sudo ./deviceQuery
 
 如果看到了一大篇的GPU信息则说明安装成功。
@@ -88,11 +93,17 @@ sudo cp cudnn.h /usr/local/cuda/include  #复制头文件
 再将进入lib64目录下的动态文件进行复制和链接：
 
 cd ../
+
 cd lib64
+
 sudo cp lib* /usr/local/cuda/lib64/    #复制动态链接库
+
 cd /usr/local/cuda/lib64/
+
 sudo rm -rf libcudnn.so libcudnn.so.5    #删除原有动态文件
+
 sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5  #生成软衔接
+
 sudo ln -s libcudnn.so.5 libcudnn.so      #生成软链接
 
 
@@ -102,7 +113,9 @@ sudo ln -s libcudnn.so.5 libcudnn.so      #生成软链接
 从官网(http://opencv.org)下载Opencv,我选择的是3.1版本。将其解压，假设解压到了/home/opencv。
 
 1 unzip opencv-3.1.0.zip  <br>
+
 2 sudo cp ./opencv-3.1.0 /home <br>
+
 3 sudo mv opencv-3.1.0 opencv <br>
 
 进入解压目录
@@ -147,8 +160,11 @@ sudo make install
 安装依赖项：
 
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+
 sudo apt-get install --no-install-recommends libboost-all-dev
+
 sudo apt-get install libopenblas-dev liblapack-dev libatlas-base-dev
+
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 
@@ -255,10 +271,12 @@ sudo make runtest
 安装依赖库
 
 $ sudo apt-get install python-numpy python-scipy python-matplotlib python-sklearn python-skimage python-h5py python-protobuf python-leveldb python-networkx python-nose python-pandas python-gflags Cython ipython
+
 $ sudo apt-get install protobuf-c-compiler protobuf-compiler
 
 
 cd ~/caffe
+
 make pycaffe
 
 添加环境变量
@@ -316,9 +334,6 @@ sudo cp /usr/local/cuda-8.0/lib64/libcurand.so.8.0 /usr/local/lib/libcurand.so.8
 .build_release/tools/caffe: error while loading shared libraries: libcudnn.so.5: cannot open shared object file: No such file or directory
 
 解决方法：
-添加环境变量
-export LD_LIBRARY_PATH="/usr/local/cuda/lib64" 
-然后
-source /etc/profile
-实在不行复制文件到/usr/local/lib
+sudo cp /usr/local/cuda/lib64/libcudnn.so.5 /usr/local/lib/ && sudo ldconfig
+
 
