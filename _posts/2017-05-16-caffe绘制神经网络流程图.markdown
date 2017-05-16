@@ -27,5 +27,5 @@ sudo apt-get install graphviz
 sudo python /home/jiangwei/bin/caffe-master/python/draw_net.py train.prototxt lenet.png
 
 生成结果：
-<img src="/articleImg/lenet.png">
+<img src="/img/articleImg/lenet.png">
 
