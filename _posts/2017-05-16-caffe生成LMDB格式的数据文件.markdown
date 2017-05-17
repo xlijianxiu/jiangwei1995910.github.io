@@ -17,6 +17,8 @@ caffe自带提供了一个生成LMDB格式文件的工具，在caffe/built/tools
 
 注意需要修改前5行的路径，还有文件最后面两个数据list文件的文件名，我的是test.txt和train.txt,你使用的时候需要修改成你自己的文件名
 
+注意resize的设置，设置成你需要的尺寸
+
 {% highlight pl %}
 
 #!/usr/bin/env sh
