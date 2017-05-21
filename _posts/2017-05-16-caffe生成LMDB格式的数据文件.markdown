@@ -7,7 +7,7 @@ author:     "蒋为"
 header-img: "img/21.jpg"
 catalog: true
 tags:
-    - caffe
+    - Caffe
 ---
 >记录
 
