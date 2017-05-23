@@ -21,6 +21,8 @@ tags:
 
 <img src="/img/articleImg/3a7.jpeg">
 
+使用我这个修改版caffe进行多label训练的时候需要在数据层加一个参数label_dim，这个参数的值为你的label的数量，示例可以看下面的网络文件
+
 ## 数据
 
 用于训练的数据是自己用python代码生成的，代码如下：
@@ -233,7 +235,7 @@ layer {
   top: "three"
   slice_param {
     axis: 1
-    slice_point: 1
+    slice_point: 1  #有n个label需要n-1个slice_point
     slice_point: 2
   }
 }
