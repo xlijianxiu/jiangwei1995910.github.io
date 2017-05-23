@@ -11,6 +11,8 @@ tags:
 ---
 >记录
 
+#介绍
+
 caffe可以直接读取原始图片进行训练，但是直接读取图片只支持单label。为进行多label分类训练，需要修改其源代码。这种修改方法相比于网上其他方法修改的是最少的，另外，这样修改也是兼容原来功能的，不影响caffe正常使用。修改如下
 
 主要涉及三个文件
@@ -20,6 +22,8 @@ caffe/src/caffe/proto/caffe.proto
 caffe/include/caffe/layers/image_data_layer.hpp
 
 caffe/src/caffe/layers/image_data_layer.cpp
+
+#修改caffe.protp
 
 定位到caffe/src/caffe/proto/caffe.proto中message ImageDataParameter
 {% highlight c %}
@@ -34,6 +38,9 @@ optional uint32 label_dim = IDNumber [default = 1];
 // IDNumber是和其它参数不冲突的ID数字
 {% endhighlight %}
 
+
+#修改image_data_layer.hpp
+
 定位到caffe/include/caffe/layers/image_data_layer.hpp
 {% highlight c %}
 // 修改vector<std::pair<std::string, int> > lines_;
@@ -42,6 +49,9 @@ optional uint32 label_dim = IDNumber [default = 1];
 
 vector<std::pair<std::string, int *> > lines_;
 {% endhighlight %}
+
+#修改image_data_layer.cpp
+
 定位到caffe/src/caffe/layers/image_data_layer.cpp
 {% highlight c %}
 // DataLayerSetUp函数
@@ -99,8 +109,25 @@ for(int i = 0;i < label_dim;++i){
 }
 {% endhighlight %}
 
+#完成
 
-使用示例：
+然后进入caffe根目录，执行
+
+{% highlight shell %}
+
+sudo make clean
+
+sudo make all -j2
+
+{% endhighlight %}
+
+如果没出错就没问题了
+
+
+
+
+#使用示例
+
 {% highlight python %}
 train.txt
 
