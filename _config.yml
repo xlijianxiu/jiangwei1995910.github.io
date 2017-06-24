@@ -1,22 +1,22 @@
 # Site settings
 title: 木木的木头
-SEOTitle: 蒋为的博客 | JiangWei Blog
+SEOTitle: 李建秀的博客 | XiuXiu Blog
 header-img: img/home-bg.jpg
-email: xjiangwei@xjiangwei.cn
-description: "一只喜欢折腾的小程序猿"
+email: ok@lijianxiu.cc
+description: "咩咩咩咩咩"
 keyword: "蒋为, jiangwei, jw, 木木的木头, 深夜想抱抱我, @jiangwei, 蒋为的博客, JW Blog, 博客, 个人网站, 互联网, 李建秀, 秀秀, 秀秀的男朋友"
-url: "http：//xjiangwei.cn"              # your host, for absolute URL
+url: "http：//www.lijianxiu.cc"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:    5303579417
+#weibo_username:    5303579417
 #zhihu_username:     
-github_username:    jiangwei1995910
+#github_username:    jiangwei1995910
 #twitter_username:  huxpro
-facebook_username:  100012133422315
+#facebook_username:  100012133422315
 # linkedin_username:  firstname-lastname-idxxxx
 
 
